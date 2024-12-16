@@ -1,5 +1,45 @@
-*, *::after, *::before {
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --bg-color: #f5f5f5;
+  --text-color: #424242;
+  --primary-color: #4caf50;
+  --hover-color: #2e7d32;
+
+  --heading-font: "Lato", sans-serif;
+  --body-font: "Raleway", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+p, a {
+  font-family: var(--body-font);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hover-color);
 }

@@ -1,0 +1,37 @@
+.contactsForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contactsForm button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+    width: 250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    background-color: rgb(255, 95, 95);
+}
+
+.success {
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+}

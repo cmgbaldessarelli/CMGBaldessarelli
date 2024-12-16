@@ -1,9 +1,13 @@
+import About from "@/components/about/about";
+import Hero from "@/components/hero/hero";
+
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <main>
-      <h1 className={styles.title}>Hello, World!</h1>
+      <Hero />
+      <About />
     </main>
   );
 }

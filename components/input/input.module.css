@@ -1,0 +1,28 @@
+.formGroup label {
+    display: block;
+    margin: 0 0 .5rem 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.formGroup label span {
+    color: rgb(255, 82, 82);
+}
+
+.formGroup input, .formGroup textarea, .formGroup select {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    transition: all .2s;
+    border-radius: 0;
+    font-family: var(--body-font);
+}
+
+.formGroup input:focus, .formGroup textarea:focus, .formGroup select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.formGroup textarea {
+    resize: none;
+}

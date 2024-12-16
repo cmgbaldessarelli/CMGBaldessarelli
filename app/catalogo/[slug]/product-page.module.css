@@ -1,0 +1,52 @@
+.productPageHeading {
+    background-color: black;
+    padding: 10rem 0 1rem 0;
+}
+
+.productPageHeading h1 {
+    color: white;
+    font-size: clamp(2rem, 1.875rem + 1.5vw, 3rem);
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.productPageContent {
+    padding: 6rem 0;
+    background-color: var(--bg-color);
+}
+
+.productPageImages {
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.productPageImages img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.productPageInfo {
+    margin-top: 3rem;
+}
+
+.productPageInfo table {
+    width: min(100%, 750px);
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.productPageInfo th, .productPageInfo td {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.productPageInfo th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-transform: uppercase;
+}

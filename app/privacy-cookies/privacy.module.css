@@ -1,0 +1,51 @@
+.privacyPage {
+    padding: 10rem 0 7rem 0;
+}
+
+.privacyPage h1, .privacyPage h2, .privacyPage p {
+    margin: 0;
+}
+
+.privacyPage a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.privacyPage a:hover {
+    text-decoration: underline;
+}
+
+.privacyPage ul {
+    margin: 0;
+    font-family: var(--body-font);
+}
+
+.privacyPage section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.privacyHeading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.privacyHeading img {
+  width: 150px;
+  height: auto;
+}
+
+.privacyContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: min(100%, 900px);
+}
+
+.privacyBlock h2 {
+    margin-bottom: 1rem;
+}

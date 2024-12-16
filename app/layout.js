@@ -1,4 +1,7 @@
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 import "./globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const metadata = {
   title: "CMG BALDESSARELLI - Soluzioni per l'Agricoltura",
@@ -25,7 +28,11 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-title" content="CMG" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
