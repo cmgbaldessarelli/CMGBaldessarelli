@@ -4,6 +4,8 @@ import styles from "./maintenance.module.css";
 
 import cmgLogoFull from "@/assets/logo-full-white.svg";
 import maintenanceImage from "@/assets/maintenance.webp";
+import emailIcon from "@/assets/email.svg";
+import phoneIcon from "@/assets/phone.svg";
 
 export default function Maintenance() {
   return (
@@ -16,8 +18,14 @@ export default function Maintenance() {
           <h2>Tornate presto a trovarci!</h2>
         </div>
         <div className={styles.maintenanceContacts}>
-          <a href="mailto:info@cmgbaldessarelli.it">info@cmgbaldessarelli.it</a>
-          <a href="tel:+393453924434">+39 345 3924434</a>
+          <a href="mailto:info@cmgbaldessarelli.it">
+            <Image src={emailIcon} alt="Invia un'email" />
+            info@cmgbaldessarelli.it
+          </a>
+          <a href="tel:+393453924434">
+            <Image src={phoneIcon} alt="Chiamaci" />
+            +39 345 3924434
+          </a>
         </div>
       </div>
     </section>
