@@ -3,6 +3,7 @@ import Header from "@/components/header/header";
 
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Maintenance from "@/components/maintenance/maintenance";
 
 export const metadata = {
   title: "CMG BALDESSARELLI - Soluzioni per l'Agricoltura a Villa Lagarina (TN)",
@@ -10,6 +11,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  const isMaintenance = true;
+
   return (
     <html lang="it">
       <head>
@@ -30,9 +34,15 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        {isMaintenance ? (
+          <Maintenance />
+        ) : (
+          <>
+            <Header />
+            {children}
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );

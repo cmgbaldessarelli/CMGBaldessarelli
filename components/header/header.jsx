@@ -3,38 +3,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import styles from "./header.module.css";
 
 import cmgLogo from "@/assets/logo-partial-white.svg";
+import downArrow from "@/assets/down-arrow.svg";
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
 
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
+    window.addEventListener("scroll", handleScroll);
 
-        window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    function handleMenuOpen() {
-        setIsMenuOpen(!isMenuOpen);
-    }
+  function handleMenuOpen() {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
   return (
-    <header className={isScrolled ? `${styles.header} ${styles.headerScrolled}` : styles.header }>
+    <header
+      className={
+        isScrolled ? `${styles.header} ${styles.headerScrolled}` : styles.header
+      }
+    >
       <div className="container">
         <nav>
           <Link href="/">
@@ -43,15 +49,55 @@ export default function Header() {
               alt="CMG BALDESSARELLI - Soluzioni per l'Agricoltura"
             />
           </Link>
-          <ul>
-            <li>
-              <Link href="/catalogo">Catalogo</Link>
+          <ul className={styles.menu}>
+            <li
+              onMouseOver={() => setIsMenuItemHovered(true)}
+              onMouseLeave={() => setIsMenuItemHovered(false)}
+              className={styles.parentItem}
+            >
+              <Link href="/catalogo">Accessori per il Vigneto</Link>
+              <Image src={downArrow} alt="Sottomenu" width={10} height={10} />
+              <AnimatePresence>
+                {isMenuItemHovered && (
+                  <motion.ul
+                    initial={{ opacity: 0, translateY: "-50px" }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    exit={{ opacity: 0, translateY: "-50px" }}
+                    className={styles.submenu}
+                  >
+                    <li>
+                      <Link href="/catalogo/tenditori">Tenditori</Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/collari-di-testata">
+                        Collari di Testata
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/collari-intermedi">
+                        Collari Intermedi
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/cavallotti">Cavallotti</Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/accessori-testata">
+                        Accessori Testata
+                      </Link>
+                    </li>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </li>
             <li>
               <Link href="/#about">Chi Siamo</Link>
             </li>
             <li>
               <Link href="/contatti">Contatti</Link>
+            </li>
+            <li>
+              <Link href="/contatti">News</Link>
             </li>
           </ul>
           <div className={styles.hamburger} onClick={handleMenuOpen}>
@@ -64,14 +110,54 @@ export default function Header() {
       {isMenuOpen && (
         <div className={styles.mobileMenu}>
           <ul>
-            <li>
-              <Link href="/catalogo">Catalogo</Link>
+            <li
+              onMouseOver={() => setIsMenuItemHovered(true)}
+              onMouseLeave={() => setIsMenuItemHovered(false)}
+              className={styles.parentItem}
+            >
+              <Link href="/catalogo">Accessori per il Vigneto</Link>
+              <Image src={downArrow} alt="Sottomenu" width={10} height={10} />
+              <AnimatePresence>
+                {isMenuItemHovered && (
+                  <motion.ul
+                    initial={{ opacity: 0, translateY: "-50px" }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    exit={{ opacity: 0, translateY: "-50px" }}
+                    className={styles.submenu}
+                  >
+                    <li>
+                      <Link href="/catalogo/tenditori">Tenditori</Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/collari-di-testata">
+                        Collari di Testata
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/collari-intermedi">
+                        Collari Intermedi
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/cavallotti">Cavallotti</Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/accessori-testata">
+                        Accessori Testata
+                      </Link>
+                    </li>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </li>
             <li>
               <Link href="/#about">Chi Siamo</Link>
             </li>
             <li>
               <Link href="/contatti">Contatti</Link>
+            </li>
+            <li>
+              <Link href="/contatti">News</Link>
             </li>
           </ul>
         </div>
