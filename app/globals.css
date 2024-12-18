@@ -32,6 +32,10 @@ p, a {
   font-family: var(--body-font);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }

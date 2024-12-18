@@ -21,14 +21,11 @@ export default function Hero() {
           src={cmgFullLogo}
           alt="CMG BALDESSARELLI - Soluzioni per l'Agricoltura"
         />
-        <div className={styles.ctaButtons}>
-            <Link href="/catalogo" className={styles.ctaButton}>
-                Catalogo
-            </Link>
+        {/* <div className={styles.ctaButtons}>
             <Link href="/contatti" className={styles.ctaButton}>
                 Contatti
             </Link>
-        </div>
+        </div> */}
         <div className={styles.visuallyHidden}>
             <h1 className={styles.title}>CMG BALDESSARELLI</h1>
             <p className={styles.description}>Soluzioni per l&apos;Agricoltura</p>

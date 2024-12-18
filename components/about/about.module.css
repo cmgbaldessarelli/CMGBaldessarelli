@@ -7,6 +7,11 @@
     font-family: var(--heading-font);
     font-weight: 600;
     text-transform: uppercase;
+    font-size: clamp(2rem, 1.629rem + 1.524vw, 3rem);
+}
+
+.about span {
+    color: var(--primary-color);
 }
 
 .aboutContent {
@@ -33,16 +38,6 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-}
-
-.aboutFooter h2 {
-    color: var(--primary-color);
-}
-
-.aboutFooter p {
-    font-size: clamp(1rem, 0.958rem + 0.185vw, 1.125rem);
-    width: min(100%, 750px);
-    margin: 0 auto;
 }
 
 .aboutCta a {

@@ -33,10 +33,10 @@ export default function Footer() {
           <div className={`col-12 col-md-4 ${styles.centeredCol}`}>
             <p>Links utili</p>
             <div className={styles.footerLinks}>
-              <Link href="/catalogo">Catalogo</Link>
               <Link href="/#about">Chi Siamo</Link>
               <Link href="/contatti">Contatti</Link>
-              <Link href="/privacy">Privacy e Cookie Policy</Link>
+              <Link href="/#news">News</Link>
+              <Link href="/privacy-cookies">Privacy e Cookie Policy</Link>
             </div>
           </div>
           <div className={`col-12 col-md-4 ${styles.centeredCol}`}>

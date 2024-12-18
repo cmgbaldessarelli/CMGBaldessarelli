@@ -3,6 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999;
     width: 100%;
     transition: all .2s;
 }
@@ -13,7 +14,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 998;
+    z-index: 999;
     transition: all .2s;
 }
 
@@ -56,21 +57,30 @@
     width: 100%;
     background-color: var(--black);
     padding: 1rem;
-    border-radius: 5px;
+    list-style-type: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.menu li a {
+.menu li a, .menu li p {
     color: var(--white);
     font-size: 1.25rem;
     font-family: var(--body-font);
     font-weight: 500;
     text-decoration: none;
     transition: all .2s;
+    margin: 0;
 }
 
 .menu li a:hover {
     color: var(--primary-color);
+}
+
+.menu .parentItem a:hover {
+    color: var(--white);
+}
+
+.submenu li a:hover {
+    color: var(--primary-color) !important;
 }
 
 .hamburger {

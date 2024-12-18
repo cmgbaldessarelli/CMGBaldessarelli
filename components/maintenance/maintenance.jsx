@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./maintenance.module.css";
 
 import cmgLogoFull from "@/assets/logo-full-white.svg";
-import maintenanceImage from "@/assets/maintenance.webp";
+import maintenanceImage from "@/assets/hero.webp";
 import emailIcon from "@/assets/email.svg";
 import phoneIcon from "@/assets/phone.svg";
 
@@ -22,9 +22,9 @@ export default function Maintenance() {
             <Image src={emailIcon} alt="Invia un'email" />
             info@cmgbaldessarelli.it
           </a>
-          <a href="tel:+393453924434">
+          <a href="tel:+393450219562">
             <Image src={phoneIcon} alt="Chiamaci" />
-            +39 345 3924434
+            +39 345 0219562
           </a>
         </div>
       </div>

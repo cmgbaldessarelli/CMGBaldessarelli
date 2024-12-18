@@ -50,12 +50,15 @@ export default function Header() {
             />
           </Link>
           <ul className={styles.menu}>
+            <li>
+              <Link href="/#about">Azienda</Link>
+            </li>
             <li
               onMouseOver={() => setIsMenuItemHovered(true)}
               onMouseLeave={() => setIsMenuItemHovered(false)}
               className={styles.parentItem}
             >
-              <Link href="/catalogo">Accessori per il Vigneto</Link>
+              <p>Accessori per il Vigneto</p>
               <Image src={downArrow} alt="Sottomenu" width={10} height={10} />
               <AnimatePresence>
                 {isMenuItemHovered && (
@@ -66,38 +69,29 @@ export default function Header() {
                     className={styles.submenu}
                   >
                     <li>
-                      <Link href="/catalogo/tenditori">Tenditori</Link>
+                      <Link href="/tenditori">Tenditori</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/collari-di-testata">
-                        Collari di Testata
-                      </Link>
+                      <Link href="/collari-di-testata">Collari di Testata</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/collari-intermedi">
-                        Collari Intermedi
-                      </Link>
+                      <Link href="/collari-intermedi">Collari Intermedi</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/cavallotti">Cavallotti</Link>
+                      <Link href="/cavallotti">Cavallotti</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/accessori-testata">
-                        Accessori Testata
-                      </Link>
+                      <Link href="/accessori-testata">Accessori Testata</Link>
                     </li>
                   </motion.ul>
                 )}
               </AnimatePresence>
             </li>
             <li>
-              <Link href="/#about">Chi Siamo</Link>
-            </li>
-            <li>
               <Link href="/contatti">Contatti</Link>
             </li>
             <li>
-              <Link href="/contatti">News</Link>
+              <Link href="/#news">News</Link>
             </li>
           </ul>
           <div className={styles.hamburger} onClick={handleMenuOpen}>
@@ -110,12 +104,15 @@ export default function Header() {
       {isMenuOpen && (
         <div className={styles.mobileMenu}>
           <ul>
+            <li>
+              <Link href="/#about">Azienda</Link>
+            </li>
             <li
               onMouseOver={() => setIsMenuItemHovered(true)}
               onMouseLeave={() => setIsMenuItemHovered(false)}
               className={styles.parentItem}
             >
-              <Link href="/catalogo">Accessori per il Vigneto</Link>
+              <p>Accessori per il Vigneto</p>
               <Image src={downArrow} alt="Sottomenu" width={10} height={10} />
               <AnimatePresence>
                 {isMenuItemHovered && (
@@ -126,38 +123,29 @@ export default function Header() {
                     className={styles.submenu}
                   >
                     <li>
-                      <Link href="/catalogo/tenditori">Tenditori</Link>
+                      <Link href="/tenditori">Tenditori</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/collari-di-testata">
-                        Collari di Testata
-                      </Link>
+                      <Link href="/collari-di-testata">Collari di Testata</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/collari-intermedi">
-                        Collari Intermedi
-                      </Link>
+                      <Link href="/collari-intermedi">Collari Intermedi</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/cavallotti">Cavallotti</Link>
+                      <Link href="/cavallotti">Cavallotti</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/accessori-testata">
-                        Accessori Testata
-                      </Link>
+                      <Link href="/accessori-testata">Accessori Testata</Link>
                     </li>
                   </motion.ul>
                 )}
               </AnimatePresence>
             </li>
             <li>
-              <Link href="/#about">Chi Siamo</Link>
-            </li>
-            <li>
               <Link href="/contatti">Contatti</Link>
             </li>
             <li>
-              <Link href="/contatti">News</Link>
+              <Link href="/#news">News</Link>
             </li>
           </ul>
         </div>

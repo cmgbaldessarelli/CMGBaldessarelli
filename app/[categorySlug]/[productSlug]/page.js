@@ -6,9 +6,9 @@ import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 
 export default async function ProductPage({ params }) {
-  const { slug } = await params;
+  const { productSlug } = await params;
 
-  const product = products.find((product) => product.slug === slug);
+  const product = products.find((product) => product.slug === productSlug);
 
   if (!product) {
     notFound();
@@ -26,22 +26,26 @@ export default async function ProductPage({ params }) {
             <Image src={product.images[1]} alt={product.name} />
           </div>
           <div className={styles.productPageInfo}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Codice Articolo</th>
-                  <th>Descrizione</th>
-                </tr>
-              </thead>
-              <tbody>
-                {product.informations.articles.map((article, index) => (
-                  <tr key={index}>
-                    <td>{article.code}</td>
-                    <td>{article.description}</td>
+            {product.informations ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Codice Articolo</th>
+                    <th>Descrizione</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {product.informations.articles.map((article, index) => (
+                    <tr key={index}>
+                      <td>{article.code}</td>
+                      <td>{article.description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <p>Nessuna informazione disponibile sul prodotto.</p>
+            )}
           </div>
         </div>
       </div>

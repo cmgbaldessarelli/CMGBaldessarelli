@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "./about.module.css";
 
 import testImage from "@/assets/test-image_1x.webp";
-import fileIcon from "@/assets/file.svg";
 
 import Link from "next/link";
 
@@ -15,14 +14,16 @@ export default function About() {
             className={`row ${styles.aboutColumns} gap-3 gap-md-0 align-items-center`}
           >
             <div className="col-12 col-md-6">
-              <h2>Innovazione e Personalizzazione per l&apos;Agricoltura</h2>
+              <h2><span>Innovazione</span> e <span>Personalizzazione</span> per l&apos;Agricoltura</h2>
               <p>
-                CMG Baldessarelli è una giovane e dinamica azienda con una forte
-                esperienza nella costruzione di accessori per impianti agricoli,
-                specializzata nella viticoltura a pergola. Grazie al nostro
-                know-how e alla passione, offriamo soluzioni personalizzate che
-                migliorano l&apos;efficienza e la durata degli impianti,
-                rispondendo alle esigenze specifiche dei clienti.
+                CMG Baldessarelli è un&apos;azienda giovane e dinamica con sede
+                a Villa Lagarina, in provincia di Trento, che vanta una solida
+                esperienza nella progettazione e costruzione di accessori per
+                impianti agricoli, con un focus particolare sulla viticoltura a
+                pergola. Grazie al nostro know-how e alla passione per il
+                settore, offriamo soluzioni su misura per migliorare
+                l&apos;efficienza e la durata degli impianti, rispondendo alle
+                esigenze specifiche di ogni cliente.
               </p>
             </div>
             <div className="col-12 col-md-6">
@@ -33,14 +34,15 @@ export default function About() {
             className={`row ${styles.aboutColumns} gap-3 gap-md-0 align-items-center`}
           >
             <div className="col-12 col-md-6 order-0 order-md-1">
-              <h2>Progettazione Avanzata e Qualità Garantita</h2>
+              <h2>Progettazione Avanzata e <span>Qualità Garantita</span></h2>
               <p>
-                Ogni progetto nasce dall&apos;analisi delle necessità
-                specifiche, utilizzando software 3D e tecniche avanzate di
-                produzione per creare accessori di qualità superiore. Offriamo
-                una vasta gamma di prodotti caratterizzati da precisione,
-                durabilità e affidabilità, garantendo un supporto continuo per
-                l&apos;imprenditore agricolo.
+                Ogni progetto nasce dall&apos;analisi accurata delle necessità
+                del cliente, utilizzando software 3D e tecniche avanzate di
+                produzione. Realizziamo accessori di altissima qualità,
+                garantendo precisione, durabilità e affidabilità. La nostra
+                gamma di prodotti è pensata per supportare l&apos;imprenditore
+                agricolo con soluzioni innovative e personalizzate, offrendo
+                un&apos;assistenza continua per il successo delle sue attività.
               </p>
             </div>
             <div className="col-12 col-md-6">
@@ -51,32 +53,18 @@ export default function About() {
             className={`row ${styles.aboutColumns} gap-3 gap-md-0 align-items-center`}
           >
             <div className="col-12 col-md-6">
-              <h2>Efficienza e Sostenibilità al Servizio del Cliente</h2>
+              <h2><span>Efficienza</span> e <span>Sostenibilità</span> al Servizio del Cliente</h2>
               <p>
-                L&apos;obiettivo di CMG Baldessarelli è ridurre i costi di
-                gestione e manutenzione degli impianti agricoli, migliorando la
-                sostenibilità e l&apos;efficienza operativa. Provenendo da una
-                realtà agricola, comprendiamo le esigenze del mercato e
-                lavoriamo ogni giorno per creare soluzioni che rendano il lavoro
-                sul campo più semplice e redditizio.
+                Il nostro obiettivo è ridurre i costi di gestione e manutenzione
+                degli impianti agricoli, migliorando al contempo sostenibilità
+                ed efficienza operativa. Provenendo da una lunga tradizione
+                agricola, comprendiamo profondamente le sfide del settore e
+                lavoriamo ogni giorno per sviluppare soluzioni che rendano il
+                lavoro nei vigneti più semplice, produttivo e redditizio.
               </p>
             </div>
             <div className="col-12 col-md-6">
               <Image src={testImage} alt="CMG Baldessarelli" />
-            </div>
-          </div>
-          <div className={styles.aboutFooter}>
-            <h2>Scopri il Nostro Catalogo Prodotti</h2>
-            <p>
-              Offriamo una vasta gamma di accessori progettati per soddisfare le
-              esigenze degli imprenditori agricoli, garantendo qualità,
-              precisione e durabilità. Esplora le nostre soluzioni innovative e
-              trova gli accessori perfetti per migliorare l&apos;efficienza e la
-              sostenibilità dei tuoi impianti agricoli.
-            </p>
-            <div className={styles.aboutCta}>
-              <Link href="/catalogo">Scopri il Catalogo</Link>
-              <a href="/cmg-catalogo.pdf" download><Image src={fileIcon} alt="CMG Catalogo PDF" /> Catalogo in PDF</a>
             </div>
           </div>
         </div>

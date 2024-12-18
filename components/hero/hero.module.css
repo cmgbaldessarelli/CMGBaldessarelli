@@ -62,16 +62,13 @@
     text-decoration: none;
     transition: all 0.2s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.ctaButtons a:first-child {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: white;
 }
 
-.ctaButtons a:last-child {
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+.ctaButtons a:hover {
+    background-color: var(--hover-color);
+    color: white;
 }
 
 .visuallyHidden {
