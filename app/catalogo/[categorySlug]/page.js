@@ -1,4 +1,4 @@
-import styles from "./catalogo.module.css";
+import styles from "../catalogo.module.css";
 
 import Image from "next/image";
 
@@ -21,7 +21,7 @@ export default async function CategoryPage({ params }) {
   }
 
   return (
-    <main className={styles.catalogo}>
+    <main className={styles.categoryCatalogo}>
       <section>
         <div className={styles.catalogoHeading}>
           <h1>{category}</h1>
@@ -35,7 +35,7 @@ export default async function CategoryPage({ params }) {
                   <div className={styles.productInfo}>
                     <h2>{product.name}</h2>
                     <p>{product.description}</p>
-                    <Link href={`/${categorySlug}/${product.slug}`}>
+                    <Link href={`/catalogo/${categorySlug}/${product.slug}`}>
                       Maggiori dettagli
                     </Link>
                   </div>

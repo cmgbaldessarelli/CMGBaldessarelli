@@ -3,8 +3,9 @@ import Link from "next/link";
 
 import styles from "./hero.module.css";
 
-import heroPhoto from "@/assets/test-image_1x.webp";
+import heroPhoto from "@/assets/hero.webp";
 import cmgFullLogo from "@/assets/logo-full-white.svg";
+import downArrow from "@/assets/down-arrow.svg";
 
 export default function Hero() {
   return (
@@ -21,15 +22,20 @@ export default function Hero() {
           src={cmgFullLogo}
           alt="CMG BALDESSARELLI - Soluzioni per l'Agricoltura"
         />
-        {/* <div className={styles.ctaButtons}>
-            <Link href="/contatti" className={styles.ctaButton}>
-                Contatti
+        <div className={styles.ctaButtons}>
+            <Link href="/catalogo" className={styles.ctaButton}>
+                Esplora i Prodotti
             </Link>
-        </div> */}
+        </div>
         <div className={styles.visuallyHidden}>
             <h1 className={styles.title}>CMG BALDESSARELLI</h1>
             <p className={styles.description}>Soluzioni per l&apos;Agricoltura</p>
         </div>
+      </div>
+      <div className={styles.arrow}>
+        <Link href="#about">
+          <Image src={downArrow} alt="Scopri di più" />
+        </Link>
       </div>
     </section>
   );

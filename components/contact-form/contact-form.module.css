@@ -22,11 +22,16 @@
     align-items: center;
 }
 
-.error {
+.errorBanner {
     color: white;
     text-align: center;
     padding: 1rem;
     background-color: rgb(255, 95, 95);
+}
+
+.error {
+    color: rgb(255, 82, 82);
+    margin: 0;
 }
 
 .success {

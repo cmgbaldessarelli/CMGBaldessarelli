@@ -68,6 +68,7 @@ export async function POST(request) {
       { status: 500 }
     );
   }
+
   return NextResponse.json(
     { message: "Messaggio inviato correttamente." },
     { status: 200 }

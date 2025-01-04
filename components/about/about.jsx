@@ -2,10 +2,15 @@ import Image from "next/image";
 import styles from "./about.module.css";
 
 import testImage from "@/assets/test-image_1x.webp";
+import chiSiamo2a from "@/assets/chi-siamo-2a.webp";
+import chiSiamo2b from "@/assets/chi-siamo-2b.webp";
+import chiSiamo3 from "@/assets/chi-siamo-3.webp";
 
-import Link from "next/link";
+import ImageSlideshow from "../image-slideshow/image-slideshow";
 
 export default function About() {
+  const chiSiamo2Images = [chiSiamo2a, chiSiamo2b];
+
   return (
     <section className={styles.about} id="about">
       <div className="container">
@@ -46,7 +51,7 @@ export default function About() {
               </p>
             </div>
             <div className="col-12 col-md-6">
-              <Image src={testImage} alt="CMG Baldessarelli" />
+              <ImageSlideshow images={chiSiamo2Images}></ImageSlideshow>
             </div>
           </div>
           <div
@@ -64,7 +69,7 @@ export default function About() {
               </p>
             </div>
             <div className="col-12 col-md-6">
-              <Image src={testImage} alt="CMG Baldessarelli" />
+              <Image src={chiSiamo3} alt="CMG Baldessarelli - Azienda" />
             </div>
           </div>
         </div>

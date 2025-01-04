@@ -3,7 +3,7 @@ import styles from "./input.module.css";
 import { forwardRef } from "react";
 
 const Input = forwardRef(function Input(
-  { label, type, id, textarea, options, ...props },
+  { label, type, id, textarea, options, checkbox, error, ...props },
   ref
 ) {
   let Tag = "";
@@ -25,6 +25,18 @@ const Input = forwardRef(function Input(
     );
   }
 
+  if (checkbox) {
+    Tag = "input";
+    return (
+      <div className={styles.formGroupFlex}>
+        <Tag id={id} type={type} ref={ref} {...props} />
+        <label htmlFor={id}>
+          {label} <span>*</span>
+        </label>
+      </div>
+    );
+  }
+
   Tag = textarea ? "textarea" : "input";
 
   return (
@@ -32,7 +44,13 @@ const Input = forwardRef(function Input(
       <label htmlFor={id}>
         {label} <span>*</span>
       </label>
-      <Tag id={id} type={type} ref={ref} {...props} />
+      <Tag
+        id={id}
+        type={type}
+        ref={ref}
+        {...props}
+        className={error ? styles.errorInput : null}
+      />
     </div>
   );
 });

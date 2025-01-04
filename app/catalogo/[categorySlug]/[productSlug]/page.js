@@ -21,10 +21,10 @@ export default async function ProductPage({ params }) {
       </div>
       <div className={styles.productPageContent}>
         <div className="container">
-          <div className={styles.productPageImages}>
-            <Image src={product.images[0]} alt={product.name} />
-            <Image src={product.images[1]} alt={product.name} />
-          </div>
+        <div className={styles.productPageImages}>
+          <Image src={product.images[0]} alt={product.name} />
+          <Image src={product.images[1]} alt={product.name} />
+        </div>
           <div className={styles.productPageInfo}>
             {product.informations ? (
               <table>

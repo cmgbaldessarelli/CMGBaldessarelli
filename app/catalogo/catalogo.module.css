@@ -1,0 +1,218 @@
+.catalogoHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.catalogoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.catalogoOverlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.catalogoOverlay div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.catalogoHeroHeading {
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.catalogoHeroHeading h1, .catalogoHeroHeading p {
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.catalogoHeroHeading h1 {
+    font-size: clamp(2rem, 1.875rem + 1.5vw, 3rem);
+}
+
+.catalogoHeroHeading p {
+    font-size: clamp(1rem, 0.938rem + 0.5vw, 1.5rem);
+}
+
+.arrow {
+    position: absolute;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    width: 2rem;
+    height: 2rem;
+    fill: white;
+    animation: bounce 3s infinite;
+    z-index: 998;
+}
+
+.catalogoCategories {
+    padding-block: 7rem;
+    background-color: var(--bg-color);
+}
+
+.catalogoCategories h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 4rem 0;
+}
+
+.catalogoCategories span {
+    color: var(--primary-color);
+}
+
+.categoriesGrid + .categoriesGrid {
+    margin-top: 1.5rem;
+}
+
+.categoriesGrid:last-child {
+    width: min(100%, 635px);
+    margin: 1.5rem auto;
+}
+
+.categoriesGrid a {
+    text-decoration: none;
+}
+
+.category {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.category img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+    transition: all .2s;
+}
+
+.categoryOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category h3 {
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.category:hover img {
+    transform: scale(1.1);
+}
+
+.catalogoHeading {
+    background-color: black;
+    padding: 10rem 0 1rem 0;
+}
+
+.catalogoHeading h1 {
+    color: white;
+    font-size: clamp(2rem, 1.875rem + 1.5vw, 3rem);
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.catalogoContent {
+    padding: 6rem 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+}
+
+.products {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 0;
+}
+
+.productCard {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+.productCard p, .productCard h2 {
+    margin: 0;
+}
+
+.productCard img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.productCard a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
+    padding-block: .5rem;
+}
+
+.productInfo {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.productInfo h2 {
+    font-size: clamp(1.5rem, 1.329rem + 0.19vw, 1.75rem);
+    margin: 0;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}

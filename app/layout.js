@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const isMaintenance = true;
+  const isMaintenance = false;
 
   return (
     <html lang="it">

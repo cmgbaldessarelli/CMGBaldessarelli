@@ -1,116 +1,204 @@
 .header {
-    background-color: rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    width: 100%;
-    transition: all .2s;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  transition: all 0.2s;
 }
 
 .headerScrolled {
-    background-color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    transition: all .2s;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.2s;
 }
 
 .header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header img {
-    width: 90px;
-    height: 90px;
+  width: 90px;
+  height: 90px;
 }
 
 .menu {
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu img {
-    width: 10px;
-    height: auto;
+  width: 10px;
+  height: auto;
 }
 
 .menu .parentItem {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
 }
 
 .submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--black);
-    padding: 1rem;
-    list-style-type: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--black);
+  padding: 1rem;
+  list-style-type: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.menu li a, .menu li p {
-    color: var(--white);
-    font-size: 1.25rem;
-    font-family: var(--body-font);
-    font-weight: 500;
-    text-decoration: none;
-    transition: all .2s;
-    margin: 0;
+.menu li a,
+.menu li p {
+  color: var(--white);
+  font-size: 1.25rem;
+  font-family: var(--body-font);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin: 0;
 }
 
 .menu li a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .menu .parentItem a:hover {
-    color: var(--white);
+  color: var(--white);
 }
 
 .submenu li a:hover {
-    color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
 
 .hamburger {
-    display: none;
-    margin-right: 10px;
+  display: none;
+  margin-right: 10px;
 }
 
 .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: var(--white);
-    transition: all .2s;
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  transition: all 0.2s;
 }
 
 .hamburger div + div {
-    margin-top: 5px;
+  margin-top: 5px;
+}
+
+.hamburgerActive div:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburgerActive div:nth-child(2) {
+  opacity: 0;
+}
+.hamburgerActive div:last-child {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  padding: 1.5rem 0;
+}
+
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  width: 100%;
+}
+
+.mobileMenu p {
+    margin: 0 10px;
+}
+
+.mobileMenu li a {
+  color: var(--white);
+  font-size: 1.25rem;
+  font-family: var(--body-font);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-right: 10px;
+}
+
+.mobileMenu li a:hover {
+  color: var(--primary-color);
+}
+
+.mobileMenu li {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  font-family: var(--body-font);
+  font-weight: 500;
+  width: 100%;
+    text-align: right;
+}
+
+.mobileMenu li:not(:last-child) {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submenuMobile {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .125rem !important;
+}
+
+.submenuMobile li {
+    border: none !important;
+    padding: 0 !important;
+}
+
+.submenuMobile li a {
+    color: var(--white);
+    font-size: 1rem;
+    font-family: var(--body-font);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
 @media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
 
-    .header nav ul {
-        display: none;
-    }
+  .header nav ul {
+    display: none;
+  }
 
-    .header img {
-        width: 70px;
-        height: 70px;
-    }
+  .header img {
+    width: 70px;
+    height: 70px;
+  }
 }

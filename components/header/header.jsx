@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import styles from "./header.module.css";
@@ -69,19 +69,25 @@ export default function Header() {
                     className={styles.submenu}
                   >
                     <li>
-                      <Link href="/tenditori">Tenditori</Link>
+                      <Link href="/catalogo/tenditori">Tenditori</Link>
                     </li>
                     <li>
-                      <Link href="/collari-di-testata">Collari di Testata</Link>
+                      <Link href="/catalogo/accessori-testata">
+                        Accessori Testata
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/collari-intermedi">Collari Intermedi</Link>
+                      <Link href="/catalogo/collari-di-testata">
+                        Collari di Testata
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/cavallotti">Cavallotti</Link>
+                      <Link href="/catalogo/collari-intermedi">
+                        Collari Intermedi
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/accessori-testata">Accessori Testata</Link>
+                      <Link href="/catalogo/cavallotti">Cavallotti</Link>
                     </li>
                   </motion.ul>
                 )}
@@ -94,62 +100,92 @@ export default function Header() {
               <Link href="/#news">News</Link>
             </li>
           </ul>
-          <div className={styles.hamburger} onClick={handleMenuOpen}>
+          <div
+            className={
+              isMenuOpen
+                ? `${styles.hamburgerActive} ${styles.hamburger}`
+                : styles.hamburger
+            }
+            onClick={handleMenuOpen}
+          >
             <div></div>
             <div></div>
             <div></div>
           </div>
         </nav>
       </div>
-      {isMenuOpen && (
-        <div className={styles.mobileMenu}>
-          <ul>
-            <li>
-              <Link href="/#about">Azienda</Link>
-            </li>
-            <li
-              onMouseOver={() => setIsMenuItemHovered(true)}
-              onMouseLeave={() => setIsMenuItemHovered(false)}
-              className={styles.parentItem}
-            >
-              <p>Accessori per il Vigneto</p>
-              <Image src={downArrow} alt="Sottomenu" width={10} height={10} />
-              <AnimatePresence>
-                {isMenuItemHovered && (
-                  <motion.ul
-                    initial={{ opacity: 0, translateY: "-50px" }}
-                    animate={{ opacity: 1, translateY: 0 }}
-                    exit={{ opacity: 0, translateY: "-50px" }}
-                    className={styles.submenu}
-                  >
-                    <li>
-                      <Link href="/tenditori">Tenditori</Link>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.375 }}
+            className={styles.mobileMenu}
+          >
+            <div className="container">
+              <ul>
+                <li onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/#about">Azienda</Link>
+                </li>
+                <li onClick={() => setIsMenuItemHovered(!isMenuItemHovered)}>
+                  <p>Accessori per il Vigneto</p>
+                  <DropdownMenu isOpen={isMenuItemHovered}>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/tenditori">Tenditori</Link>
                     </li>
-                    <li>
-                      <Link href="/collari-di-testata">Collari di Testata</Link>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/accessori-testata">
+                        Accessori Testata
+                      </Link>
                     </li>
-                    <li>
-                      <Link href="/collari-intermedi">Collari Intermedi</Link>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/collari-di-testata">
+                        Collari di Testata
+                      </Link>
                     </li>
-                    <li>
-                      <Link href="/cavallotti">Cavallotti</Link>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/collari-intermedi">
+                        Collari Intermedi
+                      </Link>
                     </li>
-                    <li>
-                      <Link href="/accessori-testata">Accessori Testata</Link>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/cavallotti">Cavallotti</Link>
                     </li>
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </li>
-            <li>
-              <Link href="/contatti">Contatti</Link>
-            </li>
-            <li>
-              <Link href="/#news">News</Link>
-            </li>
-          </ul>
-        </div>
-      )}
+                  </DropdownMenu>
+                </li>
+                <li onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/contatti">Contatti</Link>
+                </li>
+                <li onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/#news">News</Link>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
+
+const DropdownMenu = ({ children, isOpen }) => {
+  const ref = useRef(null);
+
+  return (
+    <motion.ul
+      initial={{ height: 0, opacity: 0 }}
+      animate={{
+        height: isOpen ? ref.current?.scrollHeight : 0,
+        opacity: isOpen ? 1 : 0,
+      }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className={styles.submenuMobile}
+      style={{ overflow: "hidden" }}
+      ref={ref}
+    >
+      {children}
+    </motion.ul>
+  );
+};
