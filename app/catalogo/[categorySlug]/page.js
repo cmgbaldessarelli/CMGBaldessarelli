@@ -31,14 +31,16 @@ export default async function CategoryPage({ params }) {
             <ul className={styles.products}>
               {categoryProducts.map((product, index) => (
                 <li key={index} className={styles.productCard}>
-                  <Image src={product.images[0]} alt={product.name} />
-                  <div className={styles.productInfo}>
-                    <h2>{product.name}</h2>
-                    <p>{product.description}</p>
-                    <Link href={`/catalogo/${categorySlug}/${product.slug}`}>
-                      Maggiori dettagli
-                    </Link>
-                  </div>
+                  <Link href={`/catalogo/${categorySlug}/${product.slug}`}>
+                    <Image src={product.images[0]} alt={product.name} />
+                    <div className={styles.productInfo}>
+                      <h2>{product.name}</h2>
+                      <p>{product.description}</p>
+                      <span className={styles.moreDetails}>
+                        Maggiori dettagli
+                      </span>
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>

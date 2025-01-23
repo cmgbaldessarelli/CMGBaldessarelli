@@ -170,6 +170,11 @@
     padding: 1rem;
     height: auto;
     margin: 0 auto;
+    transition: all .2s;
+}
+
+.productCard:hover {
+    transform: translateY(-10px);
 }
 
 .productCard p, .productCard h2 {
@@ -183,6 +188,11 @@
 }
 
 .productCard a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.moreDetails {
     color: var(--primary-color);
     text-decoration: none;
     display: block;
