@@ -27,13 +27,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const isMaintenance = false;
+  const isMaintenance = true;
 
   return (
     <html lang="it">
       <head>
         <Script
           src={`https://cdn-cookieyes.com/client_data/61847c3470e48698986681a7/script.js`}
+          strategy="beforeInteractive"
         ></Script>
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="apple-mobile-web-app-title" content="CMG" />
