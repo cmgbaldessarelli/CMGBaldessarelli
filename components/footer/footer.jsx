@@ -33,6 +33,8 @@ export default function Footer() {
           <div className={`col-12 col-md-4 ${styles.centeredCol}`}>
             <p>Links utili</p>
             <div className={styles.footerLinks}>
+              <Link href="/">Home</Link>
+              <Link href="/catalogo">Catalogo Prodotti</Link>
               <Link href="/#about">Chi Siamo</Link>
               <Link href="/contatti">Contatti</Link>
               <Link href="/#news">News</Link>
@@ -40,7 +42,7 @@ export default function Footer() {
             </div>
           </div>
           <div className={`col-12 col-md-4 ${styles.centeredCol}`}>
-            <a href="https://www.instagram.com/cmg_baldessarelli">
+            <a href="https://www.instagram.com/cmg_baldessarelli" target="_blank">
               <Image
                 src={instagramIcon}
                 alt="CMG BALDESSARELLI pagina Instagram"
@@ -51,7 +53,7 @@ export default function Footer() {
         <div className={styles.footerCopy}>
           <p>&copy; {currentYear} CMG Baldessarelli</p>
           <p>
-            Web Design: <a href="https://fmwebagency.it">Francesco Merighi</a>
+            Made by: <a href="https://fmwebagency.it">Francesco Merighi</a>
           </p>
         </div>
       </div>

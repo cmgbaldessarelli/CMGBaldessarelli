@@ -19,12 +19,13 @@
 .productPageImages {
     display: flex;
     width: 100%;
+    justify-content: center;
 }
 
 .productPageImages img {
     height: 450px;
     object-fit: cover;
-    width: 100%;
+    width: min(100%, 650px);
     transition: transform 0.5s;
 }
 
@@ -57,4 +58,22 @@
     background-color: var(--primary-color);
     color: var(--white);
     padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .productPageImages {
+        flex-direction: column;
+    }
+
+    .productPageImages img {
+        height: 300px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hiddenOnMobile {
+        margin: 0;
+        padding: 0;
+    }
 }

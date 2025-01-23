@@ -6,8 +6,9 @@ import downArrow from "@/assets/down-arrow.svg";
 import tenditori from "@/assets/tenditori.webp";
 import cavallotti from "@/assets/cavallotti.webp";
 import collariIntermedi from "@/assets/collari-intermedi.webp";
-import accessoriTestata from "@/assets/accessori-testata.webp";
-import testImage from "@/assets/test-image_1x.webp";
+import accessoriSpeciali from "@/assets/accessori-speciali.webp";
+import accessoriTestata from "@/assets/accessori-di-testata.webp";
+import collariDiTestata from "@/assets/collari-di-testata.webp";
 
 import Link from "next/link";
 
@@ -18,7 +19,7 @@ export default function Catalogo() {
         <div className={styles.catalogoOverlay}>
           <Image
             src={catalogoPhoto}
-            alt="CMG BALDESSARELLI - Soluzioni per l'Agricoltura"
+            alt="CMG BALDESSARELLI - Catalogo Prodotti"
           />
           <div></div>
         </div>
@@ -34,9 +35,6 @@ export default function Catalogo() {
       </section>
       <section id="categorie" className={styles.catalogoCategories}>
         <div className="container">
-          <h2>
-            Scegli la <span>Categoria</span>
-          </h2>
           <div className={`${styles.categoriesGrid} row gap-4 gap-md-0`}>
             <div className="col-12 col-md-6">
               <Link href="/catalogo/tenditori">
@@ -49,11 +47,11 @@ export default function Catalogo() {
               </Link>
             </div>
             <div className="col-12 col-md-6">
-              <Link href="/catalogo/accessori-testata">
+              <Link href="/catalogo/accessori-di-testata">
                 <div className={styles.category}>
                   <Image src={accessoriTestata} alt="Accessori Testata" />
                   <div className={styles.categoryOverlay}>
-                    <h3>Accessori Testata</h3>
+                    <h3>Accessori di Testata</h3>
                   </div>
                 </div>
               </Link>
@@ -63,7 +61,7 @@ export default function Catalogo() {
             <div className="col-12 col-md-6">
               <Link href="/catalogo/collari-di-testata">
                 <div className={styles.category}>
-                  <Image src={testImage} alt="Collari di Testata" />
+                  <Image src={collariDiTestata} alt="Collari di Testata" />
                   <div className={styles.categoryOverlay}>
                     <h3>Collari di Testata</h3>
                   </div>
@@ -81,15 +79,27 @@ export default function Catalogo() {
               </Link>
             </div>
           </div>
-          <div className={styles.categoriesGrid}>
-            <Link href="/catalogo/cavallotti">
-              <div className={styles.category}>
-                <Image src={cavallotti} alt="Cavallotti" />
-                <div className={styles.categoryOverlay}>
-                  <h3>Cavallotti</h3>
+          <div className={`${styles.categoriesGrid} row gap-4 gap-md-0`}>
+            <div className="col-12 col-md-6">
+              <Link href="/catalogo/cavallotti">
+                <div className={styles.category}>
+                  <Image src={cavallotti} alt="Cavallotti" />
+                  <div className={styles.categoryOverlay}>
+                    <h3>Cavallotti</h3>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link href="/catalogo/accessori-speciali">
+                <div className={styles.category}>
+                  <Image src={accessoriSpeciali} alt="Cavallotti" />
+                  <div className={styles.categoryOverlay}>
+                    <h3>Accessori Speciali</h3>
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

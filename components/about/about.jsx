@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./about.module.css";
 
-import testImage from "@/assets/test-image_1x.webp";
+import { motion } from "framer-motion";
+
+import chiSiamo1 from "@/assets/chi-siamo-1.jpg";
 import chiSiamo2a from "@/assets/chi-siamo-2a.webp";
 import chiSiamo2b from "@/assets/chi-siamo-2b.webp";
 import chiSiamo3 from "@/assets/chi-siamo-3.webp";
@@ -11,6 +15,15 @@ import ImageSlideshow from "../image-slideshow/image-slideshow";
 export default function About() {
   const chiSiamo2Images = [chiSiamo2a, chiSiamo2b];
 
+  const animationVariants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <section className={styles.about} id="about">
       <div className="container">
@@ -18,8 +31,17 @@ export default function About() {
           <div
             className={`row ${styles.aboutColumns} gap-3 gap-md-0 align-items-center`}
           >
-            <div className="col-12 col-md-6">
-              <h2><span>Innovazione</span> e <span>Personalizzazione</span> per l&apos;Agricoltura</h2>
+            <motion.div
+              className="col-12 col-md-6"
+              variants={animationVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <h2>
+                <span>Innovazione</span> e <span>Personalizzazione</span> per
+                l&apos;Agricoltura
+              </h2>
               <p>
                 CMG Baldessarelli è un&apos;azienda giovane e dinamica con sede
                 a Villa Lagarina, in provincia di Trento, che vanta una solida
@@ -30,16 +52,30 @@ export default function About() {
                 l&apos;efficienza e la durata degli impianti, rispondendo alle
                 esigenze specifiche di ogni cliente.
               </p>
-            </div>
-            <div className="col-12 col-md-6">
-              <Image src={testImage} alt="CMG Baldessarelli" />
-            </div>
+            </motion.div>
+            <motion.div
+              className="col-12 col-md-6"
+              variants={animationVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Image src={chiSiamo1} alt="CMG Baldessarelli" />
+            </motion.div>
           </div>
           <div
             className={`row ${styles.aboutColumns} gap-3 gap-md-0 align-items-center`}
           >
-            <div className="col-12 col-md-6 order-0 order-md-1">
-              <h2>Progettazione Avanzata e <span>Qualità Garantita</span></h2>
+            <motion.div
+              className="col-12 col-md-6 order-0 order-md-1"
+              variants={animationVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <h2>
+                Progettazione Avanzata e <span>Qualità Garantita</span>
+              </h2>
               <p>
                 Ogni progetto nasce dall&apos;analisi accurata delle necessità
                 del cliente, utilizzando software 3D e tecniche avanzate di
@@ -49,16 +85,31 @@ export default function About() {
                 agricolo con soluzioni innovative e personalizzate, offrendo
                 un&apos;assistenza continua per il successo delle sue attività.
               </p>
-            </div>
-            <div className="col-12 col-md-6">
+            </motion.div>
+            <motion.div
+              className="col-12 col-md-6"
+              variants={animationVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <ImageSlideshow images={chiSiamo2Images}></ImageSlideshow>
-            </div>
+            </motion.div>
           </div>
           <div
             className={`row ${styles.aboutColumns} gap-3 gap-md-0 align-items-center`}
           >
-            <div className="col-12 col-md-6">
-              <h2><span>Efficienza</span> e <span>Sostenibilità</span> al Servizio del Cliente</h2>
+            <motion.div
+              className="col-12 col-md-6"
+              variants={animationVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <h2>
+                <span>Efficienza</span> e <span>Sostenibilità</span> al Servizio
+                del Cliente
+              </h2>
               <p>
                 Il nostro obiettivo è ridurre i costi di gestione e manutenzione
                 degli impianti agricoli, migliorando al contempo sostenibilità
@@ -67,10 +118,16 @@ export default function About() {
                 lavoriamo ogni giorno per sviluppare soluzioni che rendano il
                 lavoro nei vigneti più semplice, produttivo e redditizio.
               </p>
-            </div>
-            <div className="col-12 col-md-6">
+            </motion.div>
+            <motion.div
+              className="col-12 col-md-6"
+              variants={animationVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <Image src={chiSiamo3} alt="CMG Baldessarelli - Azienda" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@
   z-index: 999;
   width: 100%;
   transition: all 0.2s;
+  animation: fadeInFromTop 0.5s ease-in-out forwards;
 }
 
 .headerScrolled {
@@ -73,7 +74,7 @@
 }
 
 .menu li a:hover {
-  color: var(--primary-color);
+  color: var(--hover-color);
 }
 
 .menu .parentItem a:hover {
@@ -81,7 +82,7 @@
 }
 
 .submenu li a:hover {
-  color: var(--primary-color) !important;
+  color: var(--hover-color) !important;
 }
 
 .hamburger {
@@ -145,11 +146,11 @@
 }
 
 .mobileMenu li a:hover {
-  color: var(--primary-color);
+  color: var(--hover-color);
 }
 
 .mobileMenu li {
-  color: var(--primary-color);
+  color: var(--hover-color);
   font-size: 1.25rem;
   font-family: var(--body-font);
   font-weight: 500;
@@ -200,5 +201,16 @@
   .header img {
     width: 70px;
     height: 70px;
+  }
+}
+
+@keyframes fadeInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

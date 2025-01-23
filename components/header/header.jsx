@@ -72,8 +72,13 @@ export default function Header() {
                       <Link href="/catalogo/tenditori">Tenditori</Link>
                     </li>
                     <li>
-                      <Link href="/catalogo/accessori-testata">
-                        Accessori Testata
+                      <Link href="/catalogo/accessori-speciali">
+                        Accessori Speciali
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/accessori-di-testata">
+                        Accessori di Testata
                       </Link>
                     </li>
                     <li>
@@ -135,8 +140,13 @@ export default function Header() {
                       <Link href="/catalogo/tenditori">Tenditori</Link>
                     </li>
                     <li onClick={() => setIsMenuOpen(false)}>
-                      <Link href="/catalogo/accessori-testata">
-                        Accessori Testata
+                      <Link href="/catalogo/accessori-speciali">
+                        Accessori Speciali
+                      </Link>
+                    </li>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/accessori-di-testata">
+                        Accessori di Testata
                       </Link>
                     </li>
                     <li onClick={() => setIsMenuOpen(false)}>

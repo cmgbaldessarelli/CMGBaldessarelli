@@ -17,14 +17,20 @@ export default async function ProductPage({ params }) {
   return (
     <section className={styles.productPage}>
       <div className={styles.productPageHeading}>
-        <h1>{product.name}</h1>
+        <div className="container">
+          <h1>{product.name}</h1>
+        </div>
       </div>
       <div className={styles.productPageContent}>
-        <div className="container">
-        <div className={styles.productPageImages}>
-          <Image src={product.images[0]} alt={product.name} />
-          <Image src={product.images[1]} alt={product.name} />
+        <div className={`${styles.hiddenOnMobile} container`}>
+          <div className={styles.productPageImages}>
+            <Image src={product.images[0]} alt={product.name} />
+            {product.images.length > 1 && (
+              <Image src={product.images[1]} alt={product.name} />
+            )}
+          </div>
         </div>
+        <div className="container">
           <div className={styles.productPageInfo}>
             {product.informations ? (
               <table>
