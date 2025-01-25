@@ -1,0 +1,32 @@
+.formGroup select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.formGroup select {
+    width: 100%;
+    padding: .5rem;
+    background-color: white;
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    transition: all .2s;
+    border-radius: 0;
+    font-family: var(--body-font);
+}
+
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.formGroup select option {
+    color: var(--text-color);
+}
+
+.formGroup label {
+    display: block;
+    margin: 0 0 .5rem 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}

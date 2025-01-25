@@ -62,6 +62,11 @@
     padding: 1rem;
 }
 
+.articleCode {
+    font-weight: 700;
+    font-size: clamp(1.25rem, 1.157rem + 0.381vw, 1.5rem);
+}
+
 @media screen and (max-width: 768px) {
     .productPageImages {
         flex-direction: column;

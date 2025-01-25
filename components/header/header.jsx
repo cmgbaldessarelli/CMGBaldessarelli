@@ -69,14 +69,6 @@ export default function Header() {
                     className={styles.submenu}
                   >
                     <li>
-                      <Link href="/catalogo/tenditori">Tenditori</Link>
-                    </li>
-                    <li>
-                      <Link href="/catalogo/accessori-speciali">
-                        Accessori Speciali
-                      </Link>
-                    </li>
-                    <li>
                       <Link href="/catalogo/accessori-di-testata">
                         Accessori di Testata
                       </Link>
@@ -93,6 +85,14 @@ export default function Header() {
                     </li>
                     <li>
                       <Link href="/catalogo/cavallotti">Cavallotti</Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/tenditori">Tenditori</Link>
+                    </li>
+                    <li>
+                      <Link href="/catalogo/accessori-speciali">
+                        Accessori Speciali
+                      </Link>
                     </li>
                   </motion.ul>
                 )}
@@ -137,14 +137,6 @@ export default function Header() {
                   <p>Accessori per il Vigneto</p>
                   <DropdownMenu isOpen={isMenuItemHovered}>
                     <li onClick={() => setIsMenuOpen(false)}>
-                      <Link href="/catalogo/tenditori">Tenditori</Link>
-                    </li>
-                    <li onClick={() => setIsMenuOpen(false)}>
-                      <Link href="/catalogo/accessori-speciali">
-                        Accessori Speciali
-                      </Link>
-                    </li>
-                    <li onClick={() => setIsMenuOpen(false)}>
                       <Link href="/catalogo/accessori-di-testata">
                         Accessori di Testata
                       </Link>
@@ -161,6 +153,14 @@ export default function Header() {
                     </li>
                     <li onClick={() => setIsMenuOpen(false)}>
                       <Link href="/catalogo/cavallotti">Cavallotti</Link>
+                    </li>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/tenditori">Tenditori</Link>
+                    </li>
+                    <li onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/catalogo/accessori-speciali">
+                        Accessori Speciali
+                      </Link>
                     </li>
                   </DropdownMenu>
                 </li>

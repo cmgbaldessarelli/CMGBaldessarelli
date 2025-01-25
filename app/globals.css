@@ -40,7 +40,7 @@ h3 {
   font-weight: 500 !important;
 }
 
-p, a, li, label, input, button {
+p, a, li, label, input, button, span, th, td {
   font-family: var(--body-font);
 }
 

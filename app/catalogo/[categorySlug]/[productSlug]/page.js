@@ -43,7 +43,7 @@ export default async function ProductPage({ params }) {
                 <tbody>
                   {product.informations.articles.map((article, index) => (
                     <tr key={index}>
-                      <td>{article.code}</td>
+                      <td className={styles.articleCode}>{article.code}</td>
                       <td>{article.description}</td>
                     </tr>
                   ))}
