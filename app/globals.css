@@ -66,5 +66,5 @@ html {
 
 /** COOKIE BANNER **/
 .cky-modal div[data-cky-tag="detail-powered-by"] {
-  display: none;
+  display: none !important;
 }
