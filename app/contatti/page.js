@@ -15,7 +15,7 @@ export default function Contatti() {
       <div className={styles.contactsContent}>
         <div className="container">
           <div
-            className={`row ${styles.contactsColumns} gap-5 gap-md-0 align-items-center`}
+            className={`row ${styles.contactsColumns} gap-5 gap-md-0 align-items-start`}
           >
             <div className="col-12 col-md-6">
               <div className={styles.contactInfos}>

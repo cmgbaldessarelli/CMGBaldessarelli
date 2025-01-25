@@ -63,3 +63,8 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--hover-color);
 }
+
+/** COOKIE BANNER **/
+.cky-modal div[data-cky-tag="detail-powered-by"] {
+  display: none;
+}

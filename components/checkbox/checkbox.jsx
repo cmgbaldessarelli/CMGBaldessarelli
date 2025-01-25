@@ -5,7 +5,8 @@ const Checkbox = forwardRef(({ label, id, required, ...props }, ref) => (
   <div className={styles.formGroupFlex}>
     <input id={id} type="checkbox" ref={ref} {...props} />
     <label htmlFor={id}>
-      {label} {required && <span>*</span>}
+      <span className={styles.customCheckbox}></span>
+      <div>{label} {required && <span>*</span>}</div>
     </label>
   </div>
 ));

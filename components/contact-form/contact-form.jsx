@@ -163,6 +163,8 @@ export default function ContactForm() {
           {selectedProductCodes.map((article) => (
             <Checkbox
               key={article.code}
+              id={article.code}
+              name={article.code}
               label={`${article.code} - ${article.description}`}
               value={article.code}
               onChange={handleCheckboxChange}
@@ -176,7 +178,7 @@ export default function ContactForm() {
 
       <div>
         <Checkbox
-          label="Dichiaro di aver letto e accettato i termini e le condizioni"
+          label="Ho letto e accetto i termini e le condizioni"
           id="privacy"
           name="privacy"
           required
