@@ -56,7 +56,7 @@ export default function News() {
                 </p>
               </motion.div>
             </div>
-            <div className="col-12 col-md-6 col-lg-4">
+            {/* <div className="col-12 col-md-6 col-lg-4">
               <motion.div
                 variants={animationVariants}
                 className={styles.newsItem}
@@ -74,7 +74,7 @@ export default function News() {
                   fissaggio dei tubi in modo semplice e duraturo.
                 </p>
               </motion.div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

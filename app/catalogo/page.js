@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./catalogo.module.css";
 
 import catalogoPhoto from "@/assets/categorie.webp";
+import catalogoPhoto2 from "@/assets/categorie-2.webp";
 import downArrow from "@/assets/down-arrow.svg";
 import tenditori from "@/assets/tenditori.webp";
 import cavallotti from "@/assets/cavallotti.webp";
@@ -11,16 +12,14 @@ import accessoriTestata from "@/assets/accessori-di-testata.webp";
 import collariDiTestata from "@/assets/collari-di-testata.webp";
 
 import Link from "next/link";
+import ImageSlideshow from "@/components/image-slideshow/image-slideshow";
 
 export default function Catalogo() {
   return (
     <main>
       <section className={styles.catalogoHero}>
         <div className={styles.catalogoOverlay}>
-          <Image
-            src={catalogoPhoto}
-            alt="CMG BALDESSARELLI - Catalogo Prodotti"
-          />
+          <Image src={catalogoPhoto2} alt="Catalogo" />
           <div></div>
         </div>
         <div className={styles.catalogoHeroHeading}>
