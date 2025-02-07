@@ -65,6 +65,10 @@ html {
 }
 
 /** COOKIE BANNER **/
+.cky-consent-container .cky-consent-bar {
+  box-shadow: none !important;
+}
+
 .cky-modal div[data-cky-tag="detail-powered-by"] {
   display: none !important;
 }
