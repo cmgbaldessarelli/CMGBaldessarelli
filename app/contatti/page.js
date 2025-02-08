@@ -25,7 +25,7 @@ export default function Contatti() {
                       alt="Indirizzo sede CMG BALDESSARELLI"
                     />
                     <div>
-                      <p>Via Alcide Degasperi, 15</p>
+                      <p>Via Alcide Degasperi, 55</p>
                       <p>38060 - Villa Lagarina (TN)</p>
                     </div>
                   </div>
