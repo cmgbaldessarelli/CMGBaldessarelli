@@ -66,8 +66,6 @@ export default function ContactForm() {
     const message = messageRef.current.value;
     const privacy = privacyRef.current.checked;
 
-    console.log(name, phone, product, message, selectedCodes, privacy);
-
     try {
       const response = await axios.post("/api/contact", {
         name,
@@ -77,7 +75,6 @@ export default function ContactForm() {
         selectedCodes,
         privacy,
       });
-      console.log(response.data.message);
       setSuccess(response.data.message);
       setTimeout(() => setSuccess(null), 5000);
     } catch (error) {
@@ -173,9 +170,7 @@ export default function ContactForm() {
           {error?.product && <p className={styles.error}>{error.product}</p>}
         </div>
       )}
-
       <Input label="Note aggiuntive" textarea id="message" ref={messageRef} />
-
       <div>
         <Checkbox
           label="Ho letto e accetto i termini e le condizioni"

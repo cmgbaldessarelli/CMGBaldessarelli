@@ -7,6 +7,27 @@ import { products } from "@/lib/products";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const { categorySlug } = await params;
+
+  const category = categorySlug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+
+  const categoryProducts = products.filter(
+    (product) => product.categorySlug === categorySlug
+  );
+
+  if (categoryProducts.length === 0) {
+    notFound();
+  }
+
+  return {
+    title: `${category} - Catalogo CMG BALDESSARELLI`,
+    description: `Scopri la nostra selezione di ${category} per il vigneto. Qualità e innovazione con CMG Baldessarelli.`,
+  };
+}
+
 export default async function CategoryPage({ params }) {
   const { categorySlug } = await params;
 
@@ -21,7 +42,7 @@ export default async function CategoryPage({ params }) {
   }
 
   return (
-    <main className={styles.categoryCatalogo}>
+    <main className={styles.categoryPage}>
       <section>
         <div className={styles.catalogoHeading}>
           <h1>{category}</h1>

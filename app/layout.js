@@ -8,7 +8,7 @@ import Maintenance from "@/components/maintenance/maintenance";
 
 export const metadata = {
   title:
-    "CMG BALDESSARELLI - Soluzioni per l'Agricoltura a Villa Lagarina (TN)",
+    "CMG BALDESSARELLI - Soluzioni per l'Agricoltura",
   description:
     "CMG Baldessarelli è un'azienda specializzata nella vendita di accessori per il vigneto a Villa Lagarina, in provincia di Trento.",
   icons: {
@@ -40,15 +40,15 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-title" content="CMG" />
       </head>
       <body>
-        {isMaintenance ? (
-          <Maintenance />
-        ) : (
-          <>
-            <Header />
-            {children}
-            <Footer />
-          </>
-        )}
+          {isMaintenance ? (
+            <Maintenance />
+          ) : (
+            <>
+              <Header />
+              {children}
+              <Footer />
+            </>
+          )}
       </body>
     </html>
   );

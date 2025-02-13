@@ -6,19 +6,26 @@ import phoneIcon from "@/assets/phone.svg";
 import emailIcon from "@/assets/email.svg";
 import ContactForm from "@/components/contact-form/contact-form";
 
+export const metadata = {
+  title: "Contattaci - CMG BALDESSARELLI",
+  description:
+    "Hai bisogno di informazioni sui nostri accessori per il vigneto? Contattaci subito! CMG Baldessarelli si trova a Villa Lagarina, in provincia di Trento.",
+};
+
 export default function Contatti() {
   return (
-    <section className={styles.contatti}>
-      <div className={styles.contactsHeading}>
-        <h1>Contatti</h1>
-      </div>
-      <div className={styles.contactsContent}>
-        <div className="container">
-          <div
-            className={`row ${styles.contactsColumns} gap-5 gap-md-0 align-items-start`}
-          >
-            <div className="col-12 col-md-6">
-              <div className={styles.contactInfos}>
+    <main className={styles.contactsPage}>
+      <section>
+        <div className={styles.contactsHeading}>
+          <h1>Contatti</h1>
+        </div>
+        <div className={styles.contactsContent}>
+          <div className="container">
+            <div
+              className={`row ${styles.contactsColumns} gap-5 gap-md-0 align-items-start`}
+            >
+              <div className="col-12 col-md-6">
+                <div className={styles.contactInfos}>
                   <div className={styles.contactsAddress}>
                     <Image
                       src={locationIcon}
@@ -36,22 +43,23 @@ export default function Contatti() {
                   <div className={styles.contactsEmail}>
                     <Image src={emailIcon} alt="Email CMG BALDESSARELLI" />
                     <div>
-                        <a href="mailto:info@cmgbaldessarelli.it">
-                          info@cmgbaldessarelli.it
-                        </a>
-                        <a href="mailto:cmgbaldessarelli@pec.it">
-                          cmgbaldessarelli@pec.it
-                        </a>
+                      <a href="mailto:info@cmgbaldessarelli.it">
+                        info@cmgbaldessarelli.it
+                      </a>
+                      <a href="mailto:cmgbaldessarelli@pec.it">
+                        cmgbaldessarelli@pec.it
+                      </a>
                     </div>
                   </div>
+                </div>
               </div>
-            </div>
-            <div className="col-12 col-md-6">
-              <ContactForm />
+              <div className="col-12 col-md-6">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

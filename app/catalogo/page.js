@@ -14,9 +14,15 @@ import collariDiTestata from "@/assets/collari-di-testata.webp";
 import Link from "next/link";
 import ImageSlideshow from "@/components/image-slideshow/image-slideshow";
 
+export const metadata = {
+  title: "Catalogo Prodotti - CMG BALDESSARELLI",
+  description:
+    "Esplora il nostro catalogo di accessori per vigneti. Scopri prodotti innovativi per la viticoltura con CMG Baldessarelli.",
+};
+
 export default function Catalogo() {
   return (
-    <main>
+    <main className={styles.catalogoPage}>
       <section className={styles.catalogoHero}>
         <div className={styles.catalogoOverlay}>
           <Image src={catalogoPhoto2} alt="Catalogo" />

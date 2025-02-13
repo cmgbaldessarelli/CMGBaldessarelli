@@ -4,6 +4,12 @@ import styles from "./privacy.module.css";
 
 import logoPartialBlack from "@/assets/logo-partial-black.svg";
 
+export const metadata = {
+  title: "Privacy e Cookie Policy - CMG BALDESSARELLI",
+  description:
+    "Consulta la nostra Privacy e Cookie Policy per informazioni sul trattamento dei dati personali e sull'uso dei cookie su CMG Baldessarelli.",
+};
+
 export default function PrivacyPage() {
   return (
     <main className={styles.privacyPage}>

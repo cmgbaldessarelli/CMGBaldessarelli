@@ -38,7 +38,7 @@ export default function Footer() {
               <Link href="/#about">Chi Siamo</Link>
               <Link href="/contatti">Contatti</Link>
               <Link href="/#news">News</Link>
-              <Link href="/privacy-cookies">Privacy e Cookie Policy</Link>
+              <Link href="/privacy-cookie">Privacy e Cookie Policy</Link>
             </div>
           </div>
           <div className={`col-12 col-md-4 ${styles.centeredCol}`}>
