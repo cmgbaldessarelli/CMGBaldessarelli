@@ -1,11 +1,14 @@
 "use client";
 
 import styles from "./news.module.css";
+import { news } from "@/lib/news";
+import linkOutIcon from "@/assets/link-out.svg";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function News() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,39 +45,19 @@ export default function News() {
                 variants={animationVariants}
                 className={styles.newsItem}
               >
-                <h3>
-                  Piastra porta tubo a V M10 piastra con bulloneria (bulloni
-                  M10)
-                </h3>
-                <p>
-                  Siamo entusiasti di presentare la{" "}
-                  <strong>Piastra Porta Tubo a V M10</strong>, una soluzione
-                  innovativa e resistente, progettata per garantire una tenuta
-                  sicura e stabile. <br />
-                  Questa piastra è dotata di bulloneria M10, perfetta per il
-                  fissaggio dei tubi in modo semplice e duraturo.
-                </p>
+                <h3>{news[0].title}</h3>
+                <p>{news[0].short_description}</p>
+                <div>
+                  <a href={news[0].ig_link} target="_blank" rel="noreferrer">
+                    Guarda il video <Image src={linkOutIcon} alt="Segui link" />
+                  </a>
+                  <Link href={`/news/${news[0].slug}`}>
+                    Maggiori informazioni{" "}
+                    <Image src={linkOutIcon} alt="Segui link" />
+                  </Link>
+                </div>
               </motion.div>
             </div>
-            {/* <div className="col-12 col-md-6 col-lg-4">
-              <motion.div
-                variants={animationVariants}
-                className={styles.newsItem}
-              >
-                <h3>
-                  Piastra porta tubo a V M10 piastra con bulloneria (bulloni
-                  M10)
-                </h3>
-                <p>
-                  Siamo entusiasti di presentare la{" "}
-                  <strong>Piastra Porta Tubo a V M10</strong>, una soluzione
-                  innovativa e resistente, progettata per garantire una tenuta
-                  sicura e stabile. <br />
-                  Questa piastra è dotata di bulloneria M10, perfetta per il
-                  fissaggio dei tubi in modo semplice e duraturo.
-                </p>
-              </motion.div>
-            </div> */}
           </motion.div>
         </div>
       </div>

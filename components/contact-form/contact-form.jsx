@@ -1,5 +1,178 @@
 "use client";
 
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import axios from "axios";
+
+import styles from "./contact-form.module.css";
+import { products } from "@/lib/products";
+
+import Input from "../input/input";
+import Select from "../select/select";
+import Checkbox from "../checkbox/checkbox";
+import Loader from "../loader/loader";
+
+const schema = z.object({
+  name: z
+    .string()
+    .nonempty("Il campo nome è obbligatorio.")
+    .min(2, "Il nome deve contenere almeno 2 caratteri."),
+  phone: z
+    .string()
+    .nonempty("Il campo telefono è obbligatorio.")
+    .regex(/^\d{10,15}$/, "Inserisci un numero di telefono valido."),
+  email: z.string().nonempty("Il campo email è obbligatorio").email("Inserisci un indirizzo email valido."),
+  product: z.string().optional(),
+  message: z.string().optional(),
+  selectedCodes: z.array(z.string()).nonempty("Devi selezionare almeno un codice prodotto."),
+  privacy: z.literal(true, {
+    errorMap: () => ({ message: "Devi accettare i termini e le condizioni." }),
+  }),
+});
+
+export default function ContactForm() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(schema),
+    mode: "onChange",
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      product: "",
+      message: "",
+      selectedCodes: [],
+      privacy: false,
+    },
+  });
+
+  const [success, setSuccess] = useState(null);
+  const [serverError, setServerError] = useState(null);
+
+  const selectedProduct = products.find((p) => p.name === watch("product"));
+  const selectedProductCodes = selectedProduct?.informations.articles || [];
+
+  const onSubmit = async (data) => {
+    setSuccess(null);
+    setServerError(null);
+
+    console.log(data);
+
+    try {
+      const response = await axios.post("/api/contact", data);
+      setSuccess(response.data.message);
+      setTimeout(() => setSuccess(null), 5000);
+    } catch (error) {
+      setServerError(
+        error.response?.data?.message || "Errore nell'invio del form."
+      );
+    }
+  };
+
+  return (
+    <form className={styles.contactsForm} onSubmit={handleSubmit(onSubmit)}>
+      {serverError && <p className={styles.errorBanner}>{serverError}</p>}
+      {success && <p className={styles.success}>{success}</p>}
+
+      <div>
+        <Input
+          label="Nome e cognome"
+          type="text"
+          id="name"
+          required
+          {...register("name")}
+          error={errors.name?.message}
+        />
+        <p className={styles.error}>{errors.name?.message}</p>
+      </div>
+
+      <div className={styles.flexGroup}>
+        <div>
+          <Input
+            label="Telefono"
+            type="tel"
+            id="phone"
+            required
+            {...register("phone")}
+            error={errors.phone?.message}
+          />
+          <p className={styles.error}>{errors.phone?.message}</p>
+        </div>
+        <div>
+          <Input
+            label="Email"
+            type="email"
+            id="email"
+            required
+            {...register("email")}
+            error={errors.email?.message}
+          />
+          <p className={styles.error}>{errors.email?.message}</p>
+        </div>
+      </div>
+
+      <Select
+        label="Sei interessato a qualche prodotto in particolare?"
+        id="product"
+        {...register("product")}
+        options={products}
+      />
+
+      {selectedProductCodes.length > 0 && (
+        <div>
+          <p>Seleziona la variante di tuo interesse:</p>
+          {selectedProductCodes.map((article) => (
+            <Checkbox
+              key={article.code}
+              id={article.code}
+              label={`${article.code} - ${article.description}`}
+              value={article.code}
+              checked={watch("selectedCodes").includes(article.code)}
+              onChange={(e) => {
+                const newCodes = e.target.checked
+                  ? [...watch("selectedCodes"), article.code]
+                  : watch("selectedCodes").filter((c) => c !== article.code);
+                setValue("selectedCodes", newCodes);
+              }}
+            />
+          ))}
+          <p className={styles.error}>{errors.selectedCodes?.message}</p>
+        </div>
+      )}
+
+      <div>
+        <Input
+          label="Note aggiuntive"
+          textarea
+          id="message"
+          {...register("message")}
+        />
+      </div>
+
+      <div>
+        <Checkbox
+          label="Ho letto e accetto i termini e le condizioni"
+          id="privacy"
+          required
+          {...register("privacy")}
+        />
+        <p className={styles.error}>{errors.privacy?.message}</p>
+      </div>
+
+      <button type="submit">{isSubmitting ? <Loader /> : "Invia"}</button>
+    </form>
+  );
+}
+
+/* "use client";
+
 import { useRef, useState } from "react";
 import axios from "axios";
 
@@ -186,144 +359,4 @@ export default function ContactForm() {
       <button type="submit">{loading ? <Loader /> : "Invia"}</button>
     </form>
   );
-}
-
-/* "use client";
-
-import { useRef, useState } from "react";
-import axios from "axios";
-
-import styles from "./contact-form.module.css";
-
-import { products } from "@/lib/products";
-
-import Input from "../input/input";
-import Loader from "../loader/loader";
-
-export default function ContactForm() {
-  const nameRef = useRef();
-  const phoneRef = useRef();
-  const messageRef = useRef();
-  const productRef = useRef();
-  const privacyRef = useRef();
-
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [isProductSelected, setIsProductSelected] = useState(false);
-
-  function validateForm() {
-    const newErrors = {};
-
-    if (nameRef.current.value.trim() === "") {
-      newErrors.name = "Il campo nome è obbligatorio.";
-    }
-
-    if (phoneRef.current.value.trim().length < 10) {
-      newErrors.phone = "Il numero di telefono non è valido.";
-    }
-    if (phoneRef.current.value.trim() === "") {
-      newErrors.phone = "Il campo telefono è obbligatorio.";
-    }
-
-    if (!privacyRef.current.checked) {
-      newErrors.privacy = "Devi acccettare i termini e le condizioni.";
-    }
-
-    setError(newErrors);
-    return Object.keys(newErrors).length === 0;
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    setLoading(true);
-
-    if (!validateForm()) {
-      setLoading(false);
-      return;
-    }
-
-    const name = nameRef.current.value;
-    const phone = phoneRef.current.value;
-    const product = productRef.current.value;
-    const message = messageRef.current.value;
-
-    console.log(name, phone, product, message);
-
-    try {
-      const response = await axios.post("/api/contact", {
-        name,
-        phone,
-        product,
-        message,
-      });
-      console.log(response.data.message);
-      setSuccess(response.data.message);
-    } catch (error) {
-      const newErrors = {};
-      newErrors.error = error.response.data.message;
-      setError(newErrors);
-    }
-
-    setLoading(false);
-  }
-
-  return (
-    <form className={styles.contactsForm} onSubmit={handleSubmit}>
-      {error?.error && <p className={styles.errorBanner}>{error.error}</p>}
-      {success && <p className={styles.success}>{success}</p>}
-      <div>
-        <Input
-          label="Nome"
-          type="text"
-          id="name"
-          ref={nameRef}
-          error={!!error?.name}
-          onFocus={() => setError({ ...error, name: null })}
-        />
-        {error?.name && <p className={styles.error}>{error.name}</p>}
-      </div>
-      <div>
-        <Input
-          label="Telefono"
-          type="tel"
-          id="phone"
-          ref={phoneRef}
-          error={!!error?.phone}
-          onFocus={() => setError({ ...error, phone: null })}
-        />
-        {error?.phone && <p className={styles.error}>{error.phone}</p>}
-      </div>
-      <Input
-        label="Sei interessato a qualche prodotto in particolare?"
-        id="product"
-        options={products}
-        ref={productRef}
-      />
-      <div>
-        <Input
-          label="Messaggio"
-          textarea
-          id="message"
-          ref={messageRef}
-          error={!!error?.message}
-          onFocus={() => setError({ ...error, message: null })}
-        />
-        {error?.message && <p className={styles.error}>{error.message}</p>}
-      </div>
-      <div>
-        <Input
-          label="Dichiaro di aver letto e accettato i termini e le condizioni"
-          checkbox
-          type="checkbox"
-          id="privacy"
-          ref={privacyRef}
-          onFocus={() => setError({ ...error, privacy: null })}
-        />
-        {error?.privacy && <p className={styles.error}>{error.privacy}</p>}
-      </div>
-      <button type="submit">{loading ? <Loader /> : "Invia"}</button>
-    </form>
-  );
-}
- */
+} */

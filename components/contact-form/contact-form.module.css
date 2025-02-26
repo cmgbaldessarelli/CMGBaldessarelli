@@ -22,6 +22,15 @@
     align-items: center;
 }
 
+.flexGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.flexGroup div {
+    flex: 1;
+}
+
 .errorBanner {
     color: white;
     text-align: center;
@@ -39,4 +48,10 @@
     text-align: center;
     padding: 1rem;
     background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 576px) {
+    .flexGroup {
+        flex-direction: column;
+    }
 }

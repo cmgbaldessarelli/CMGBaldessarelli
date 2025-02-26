@@ -4,12 +4,12 @@ import nodemailer from "nodemailer";
 import { products } from "@/lib/products";
 
 export async function POST(request) {
-  const { name, phone, product, selectedCodes, message, privacy } =
+  const { name, phone, email, product, selectedCodes, message, privacy } =
     await request.json();
 
-  console.log(name, phone, product, message, selectedCodes, privacy);
+  console.log(name, phone, email, product, message, selectedCodes, privacy);
 
-  if (!name || !phone || !privacy) {
+  if (!name || !phone || !email || !privacy) {
     return NextResponse.json(
       { message: "Tutti i campi vanno compilati." },
       { status: 400 }
@@ -44,8 +44,8 @@ export async function POST(request) {
     },
     logger: true,
     debug: true,
-    connectionTimeout: 60000, // 60 seconds
-    pool: true, // Use pooled connections for better reliability
+    connectionTimeout: 60000,
+    pool: true,
   });
 
   const htmlBody = `
@@ -55,6 +55,7 @@ export async function POST(request) {
       <ul style="margin: 0 !important;">
         <li style="font-family: 'Montserrat', sans-serif !important;">Nome: ${name}</li>
         <li style="font-family: 'Montserrat', sans-serif !important;">Telefono: ${phone}</li>
+        <li style="font-family: 'Montserrat', sans-serif !important;">Email: ${email}</li>
       </ul>
     </div>
     <div style="margin-bottom: 2rem !important;">
